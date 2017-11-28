@@ -1,0 +1,72 @@
+/*
+
+Mathison has been playing quite a lot with some array A[] of length N
+
+. A subarray of the given array is called funny if it starts and ends with the same number.
+
+Your task is to find the length of the longest funny subarray of the given array.
+
+Input
+The first line of the input file contains an integer, N
+, representing the number of integers in the given array.
+The second line of the input file contains N space-separated integers, where the ith integer represents A[i]
+
+.
+
+Output
+The output file should contain only one integer, the length of the longest funny subarray.
+
+Constraints
+
+    1≤N≤106
+
+1≤A[i]≤105
+A subarray is a subset of consecutive elements of an array.
+
+
+
+SAMPLE INPUT
+
+9
+2 2 3 1 2 2 3 1 1
+
+
+https://www.hackerearth.com/practice/algorithms/greedy/basics-of-greedy-algorithms/practice-problems/algorithm/mathison-and-the-funny-substring-b3f58587/
+
+*/
+//Improve the code !!!!!!!!!!!!!!!!!!
+
+import java.util.Scanner;
+
+class TestClass {
+    static int max = 0;
+    public static void main(String args[] ) throws Exception {
+       Scanner input = new Scanner(System.in);
+		// Create a new array. The user enters the size
+		int[] arr = new int[input.nextInt()];
+		// Get the value of each element in the array
+		for (int i = 0; i < arr.length; i++)
+			arr[i] = input.nextInt();
+
+		for (int i = 0; i < arr.length; i++) {
+			// Pick ending point
+			for (int j = i; j < arr.length; j++) {
+				// Print subarray between current starting
+				// and ending points
+				int count = 0;
+				for (int k = i; k <= j; k++) {
+
+					if (arr[i] == arr[j]) {
+						count = count + 1;
+					}
+				}
+				if (count > max) {
+					max = count;
+				}
+				
+			}
+		}
+		System.out.println(max);
+
+    }
+}

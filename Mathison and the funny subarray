@@ -39,34 +39,24 @@ https://www.hackerearth.com/practice/algorithms/greedy/basics-of-greedy-algorith
 import java.util.Scanner;
 
 class TestClass {
-    static int max = 0;
-    public static void main(String args[] ) throws Exception {
-       Scanner input = new Scanner(System.in);
-		// Create a new array. The user enters the size
+   static int max = 0;
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
 		int[] arr = new int[input.nextInt()];
-		// Get the value of each element in the array
 		for (int i = 0; i < arr.length; i++)
 			arr[i] = input.nextInt();
 
 		for (int i = 0; i < arr.length; i++) {
-			// Pick ending point
+			int count = 0;
 			for (int j = i; j < arr.length; j++) {
-				// Print subarray between current starting
-				// and ending points
-				int count = 0;
-				for (int k = i; k <= j; k++) {
-
-					if (arr[i] == arr[j]) {
-						count = count + 1;
-					}
+				if (arr[i] == arr[j]) {
+					count = (j - i + 1);
 				}
-				if (count > max) {
-					max = count;
-				}
-				
+			}
+			if (count > max) {
+				max = count;
 			}
 		}
 		System.out.println(max);
-
-    }
+	}
 }

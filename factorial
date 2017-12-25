@@ -1,0 +1,7 @@
+private static BigInteger factorial(int num) {
+		BigInteger fact = new BigInteger("1");
+		for (int i = 1; i <= num; i++) {
+			fact = fact.multiply(BigInteger.valueOf(i));
+		}
+		return fact;
+	}
